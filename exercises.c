@@ -11,7 +11,7 @@ int main() {
   // // 1. Hello World
   // /* write a simple hello world statement in c */
   //
-  // printf("Hello, world!");
+  // printf("Section 1\nHello, world!");
 
   // 2. Vars/types
   // /* write a statement to add the following values together, then print them
@@ -22,7 +22,7 @@ int main() {
   // int var4 = 429;
   //
   // float theSum = varI + varD + varF + var4;
-  // printf("Let's add 4 nums: %f\n", theSum);
+  // printf("Section 2\nLet's add 4 nums: %f\n", theSum);
 
   // // 3. Arrays
   // /* init an array with 10 elements, then fill it with alternating values
@@ -40,8 +40,12 @@ int main() {
   // for (index = 0; index < 10; index++) {
   //   runningTotal += grades[index];
   // }
-  // printf("%i\n", runningTotal/10);
-  // return 0;
+  // printf("Section 3\nGrade average: %i\n", runningTotal / 10);
 
   // 4. Multidimensional Arrays
+  //
+
+
+
+  return 0;
 }
