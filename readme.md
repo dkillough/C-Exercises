@@ -2,7 +2,7 @@
 
 A simple program to help you learn C.
 
-<b>Instructions per-section can be found within the document as comments</b>
+<b>Instructions per-section can be found within the document as comments.</b>
 
 Made by @dkillough
 
