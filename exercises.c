@@ -3,7 +3,9 @@
    author: @dkillough
    sections based off of section tutorials from learn-c.org (copyright n.d.)
 
-   pls forgive use of magic numbers ty
+   //TODO:
+   1. Finish remaining sections
+   2. Replace magic numbers with #definitions
  */
 
 #include <stdio.h>
@@ -67,7 +69,25 @@ int main() {
   // printf("Section 4\nCount equalities: %i\n", runningTotal);
 
   // 5. Conditions
+  // NOTICE: Currently broken. See: scanf input statement, line 79.
+  int guessed = 0;
+  int numToGuess = rand() % 100;
+  int numUserGuessed;
 
+  while (guessed == 0) {
+    printf("Enter a number: ");
+    scanf("%d", &numUserGuessed);
+    printf("You guessed: %i\n", numUserGuessed);
+    if (numUserGuessed == numToGuess) {
+      guessed = 1;
+    } else if (numUserGuessed < numToGuess) {
+      printf("Guess higher.\n");
+    } else {
+      printf("Guess lower.\n");
+    }
+  }
+
+  printf("Section 5\nNumber guessed: %i\n", numToGuess);
 
   return 0;
 }
