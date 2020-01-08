@@ -1,10 +1,17 @@
 /*
    exercises.c program
-   simple exercises to help learn c made by @dkillough.
+   author: @dkillough
    sections based off of section tutorials from learn-c.org (copyright n.d.)
+
+   pls forgive use of magic numbers ty
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+
+#define BOOL char
+#define FALSE 0
+#define TRUE 1
 
 int main() {
 
@@ -13,7 +20,7 @@ int main() {
   //
   // printf("Section 1\nHello, world!");
 
-  // 2. Vars/types
+  // // 2. Vars/types
   // /* write a statement to add the following values together, then print them
   // out */
   // int varI = 6;
@@ -26,25 +33,40 @@ int main() {
 
   // // 3. Arrays
   // /* init an array with 10 elements, then fill it with alternating values
-  // 90 and 100. Then print the average. */
+  // 90 and 100. Then print the average.
+  // Don't forget to additionally initialize index and runningTotal variables.
+  // */
   //
-  // int grades[10];
+  // int array[10];
   // int index, runningTotal = 0;
   // for (index = 0; index < 10; index++) {
   //   if (index % 2 == 0) {
-  //     grades[index] = 100;
+  //     array[index] = 100;
   //   } else {
-  //     grades[index] = 90;
+  //     array[index] = 90;
   //   }
   // }
   // for (index = 0; index < 10; index++) {
-  //   runningTotal += grades[index];
+  //   runningTotal += array[index];
   // }
-  // printf("Section 3\nGrade average: %i\n", runningTotal / 10);
+  // printf("Section 3\nArray average: %i\n", runningTotal / 10);
 
-  // 4. Multidimensional Arrays
+  // // 4. Multidimensional Arrays
+  // // /* initialize 2 2D arrays. Loop through each and compare values at each
+  // // index. Print the number of times the values at each index are the same
+  // */
   //
+  // int array2D[2][4] = {{0, 1, 2, 3}, {4, 5, 6, 7}};
+  // int array2D2[2][4] = {{0, 4, 7, 1}, {1, 4, 6, 9}};
+  // int i, j, runningTotal = 0;
+  // for (i = 0; i < 2; i++) {
+  //   for (j = 0; j < 4; j++) {
+  //     runningTotal += (array2D[i][j] == array2D2[i][j]);
+  //   }
+  // }
+  // printf("Section 4\nCount equalities: %i\n", runningTotal);
 
+  // 5. Conditions
 
 
   return 0;
