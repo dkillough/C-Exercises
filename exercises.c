@@ -68,26 +68,28 @@ int main() {
   // }
   // printf("Section 4\nCount equalities: %i\n", runningTotal);
 
-  // 5. Conditions
-  // NOTICE: Currently broken. See: scanf input statement, line 79.
-  // int guessed = 0;
+  // // 5. Conditions
+  // /* complete a number guessing game with the logic to tell the player
+  // whether to go higher or lower. */
+  // int guessed = FALSE;
   // int numToGuess = rand() % 100;
   // int numUserGuessed;
   //
-  // while (guessed == 0) {
+  // while (guessed == FALSE) {
   //   printf("Enter a number: ");
   //   scanf("%d", &numUserGuessed);
   //   printf("You guessed: %i\n", numUserGuessed);
+  //
   //   if (numUserGuessed == numToGuess) {
-  //     guessed = 1;
+  //     guessed = TRUE;
   //   } else if (numUserGuessed < numToGuess) {
   //     printf("Guess higher.\n");
   //   } else {
   //     printf("Guess lower.\n");
   //   }
-  // }
   //
-  // printf("Section 5\nNumber guessed: %i\n", numToGuess);
+  // }
+  // printf("Section 5\nThe number was guessed: %i\n", numToGuess);
 
   return 0;
 }
