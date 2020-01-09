@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define BOOL char
 #define FALSE 0
@@ -90,6 +91,23 @@ int main() {
   //
   // }
   // printf("Section 5\nThe number was guessed: %i\n", numToGuess);
+
+  // // 6. Strings
+  // /* make a password guesser based on set password and an input string of a maximum of 20 characters */
+  // char *setPassword = "password";
+  // char input[20];
+  // int guessed = FALSE;
+  //
+  // while (guessed == FALSE) {
+  //   printf("What's the password? Max 19 characters: ");
+  //   scanf("%s", input);
+  //   if (strncmp(setPassword, input, 20) == 0) {
+  //     guessed = TRUE;
+  //   } else {
+  //     printf("Incorrect password. Please try again\n");
+  //   }
+  // }
+  // printf("Section 6\nPassword Accepted\n");
 
   return 0;
 }
