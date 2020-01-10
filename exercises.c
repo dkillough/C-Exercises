@@ -13,21 +13,32 @@
 #define FALSE 0
 #define TRUE 1
 
-int one(), two(), three(), four(), five(), six(), seven(), eight(), nine();
+// "BASIC"
+int one(), two(), three(), four(), five(), six(), seven(), eight(), nine(),
+    ten(), helpTen();
+
+// "ADVANCED"
+int eleven();
 
 int main() {
   one();
   two();
   three();
   four();
+  /* NOTE: five and six require scanf() statements using gcc. */
   // five();
   // six();
   seven();
   eight();
   nine("hello");
+  ten();
+  eleven();
   return 0;
 }
 
+/* *********************** *
+ * ****** " basic " ****** *
+ * *********************** */
 // 1. Hello World
 /* write a simple hello world statement in c using printf */
 int one() {
@@ -149,7 +160,8 @@ int seven() {
 }
 
 // 8. While loops
-/* Write a very convoluted way of writing out a meme */
+/* Write a very convoluted way of printing out a meme */
+// TODO: Rewrite into an actual problem
 int eight() {
   int index = -1;
   printf("Section 8\n");
@@ -170,12 +182,61 @@ int eight() {
 /* write the nine() function passing in a string as an argument. Set it equal to
  * a pointer, then print the string letter by letter using the pointer. */
 int nine(char input[]) {
-  int index;
+  int i;
   char *pointer;
   pointer = input;
   printf("Section 9\n");
-  for (index = 0; index < strlen(input); index++) {
-    printf("%c", pointer[index]);
+  for (i = 0; i < strlen(input); i++) {
+    printf("%c", pointer[i]);
   }
+  printf("\n\n");
+  return 0;
+}
+
+// 10. Static
+/* multiply the values in a 2D array by a given quantity, then sum them all
+ * together. Print both the array after multiplication as well as the sum of all
+ * elements. */
+int ten() {
+  int array[][3] = {{5, 10, 15}, {64, 83, 25}, {4, 84, 2568}, {753, 57, 75}};
+  int quantity = 15;
+  int r, c;
+  printf("Section 10\n");
+  for (r = 0; r < 4; r++) {
+    printf("| ");
+    for (c = 0; c < 3; c++) {
+      array[r][c] *= quantity;
+      printf("%i ", array[r][c]);
+    }
+    printf("|\n");
+  }
+  for (r = 0; r < 4; r++) {
+    for (c = 0; c < 3; c++) {
+      helpTen(array[r][c]);
+    }
+  }
+  printf("Sum: %d\n\n", helpTen(0));
+  return 0;
+}
+/* helper method for 10 to demo static sum variable, which is objectively slower
+ than just writing the sum statement code in the for loop. Nice. */
+int helpTen(int input) {
+  static int sum;
+  sum += input;
+  return sum;
+}
+
+/* ************************ *
+ * ***** " advanced " ***** *
+ * ************************ */
+// 11. Pointers
+/* Declare a variable and reference a pointer to it. Print both it and its
+ * deferenced value; they should be identical */
+int eleven() {
+  int a = rand();
+  int *p;
+  p = &a;
+  printf("Section 11\nValue for the int a: %i\n", a);
+  printf("Value for pointer p: %i\n\n", *p);
   return 0;
 }
