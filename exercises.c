@@ -13,11 +13,11 @@
 #define FALSE 0
 #define TRUE 1
 
-//"BASIC"
+// "BASIC"
 int one(), two(), three(), four(), five(), six(), seven(), eight(), nine(),
-    ten();
+    ten(), helpTen();
 
-//"ADVANCED"
+// "ADVANCED"
 int eleven();
 
 int main() {
@@ -186,12 +186,41 @@ int nine(char input[]) {
   for (i = 0; i < strlen(input); i++) {
     printf("%c", pointer[i]);
   }
+  printf("\n\n");
   return 0;
 }
 
 // 10. Static
-/* text */
+/* multiply the values in a 2D array by a given quantity, then sum them all
+ * together. Print both the array after multiplication as well as the sum of all
+ * elements. */
 int ten() {
-  int one;
+  int array[][3] = {{5, 10, 15}, {64, 83, 25}, {4, 84, 2568}, {753, 57, 75}};
+  int quantity = 15;
+  int r, c;
+  printf("Section 10\n");
+  for (r = 0; r < 4; r++) {
+    printf("| ");
+    for (c = 0; c < 3; c++) {
+      array[r][c] *= quantity;
+      printf("%i ", array[r][c]);
+    }
+    printf("|\n");
+  }
+  for (r = 0; r < 4; r++) {
+    for (c = 0; c < 3; c++) {
+      helpTen(array[r][c]);
+    }
+  }
+  printf("Sum: %d\n\n", helpTen(0));
   return 0;
 }
+/* helper method for 10 to demo static sum variable, which is objectively slower
+ than just writing the sum statement code in the for loop. Nice. */
+int helpTen(int input) {
+  static int sum;
+  sum += input;
+  return sum;
+}
+
+int eleven() { return 0; }
