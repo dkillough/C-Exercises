@@ -13,18 +13,26 @@
 #define FALSE 0
 #define TRUE 1
 
-int one(), two(), three(), four(), five(), six(), seven(), eight(), nine();
+//"BASIC"
+int one(), two(), three(), four(), five(), six(), seven(), eight(), nine(),
+    ten();
+
+//"ADVANCED"
+int eleven();
 
 int main() {
   one();
   two();
   three();
   four();
+  /* five and six require scanf() statements using gcc. */
   // five();
   // six();
   seven();
   eight();
   nine("hello");
+  ten();
+  eleven();
   return 0;
 }
 
@@ -149,7 +157,8 @@ int seven() {
 }
 
 // 8. While loops
-/* Write a very convoluted way of writing out a meme */
+/* Write a very convoluted way of printing out a meme */
+// TODO: Rewrite into an actual problem
 int eight() {
   int index = -1;
   printf("Section 8\n");
@@ -170,12 +179,19 @@ int eight() {
 /* write the nine() function passing in a string as an argument. Set it equal to
  * a pointer, then print the string letter by letter using the pointer. */
 int nine(char input[]) {
-  int index;
+  int i;
   char *pointer;
   pointer = input;
   printf("Section 9\n");
-  for (index = 0; index < strlen(input); index++) {
-    printf("%c", pointer[index]);
+  for (i = 0; i < strlen(input); i++) {
+    printf("%c", pointer[i]);
   }
+  return 0;
+}
+
+// 10. Static
+/* text */
+int ten() {
+  int one;
   return 0;
 }
