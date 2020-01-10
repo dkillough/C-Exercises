@@ -13,16 +13,17 @@
 #define FALSE 0
 #define TRUE 1
 
-int one(), two(), three(), four(), five(), six(), seven();
+int one(), two(), three(), four(), five(), six(), seven(), eight();
 
 int main() {
   one();
   two();
   three();
   four();
-  five();
-  six();
+  // five();
+  // six();
   seven();
+  eight();
   return 0;
 }
 
@@ -41,7 +42,6 @@ int two() {
   float varF = -561.99;
   double varD = 12.1;
   int var4 = 429;
-
   float theSum = varI + varD + varF + var4;
   printf("Section 2\nLet's add 4 nums: %f\n\n", theSum);
   return 0;
@@ -144,5 +144,23 @@ int seven() {
     printf("%i ", array[index]);
   }
   printf("}\n\n");
+  return 0;
+}
+
+// 8. While loops
+/* Write a very convoluted way of writing out a meme */
+int eight() {
+  int index = -1;
+  printf("Section 8\n");
+  while (index < 10) {
+    index++;
+    if (index < 9) {
+      continue;
+    } else if (index == 10) {
+      break;
+    }
+    printf("> club penguin is kil\n");
+  }
+  printf("> no\n\n");
   return 0;
 }
