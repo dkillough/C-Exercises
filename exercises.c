@@ -18,7 +18,7 @@ int one(), two(), three(), four(), five(), six(), seven(), eight(), nine(),
     ten(), helpTen();
 
 // "ADVANCED"
-int eleven();
+int eleven(), twelve();
 
 int main() {
   one();
@@ -33,6 +33,7 @@ int main() {
   nine("hello");
   ten();
   eleven();
+  twelve();
   return 0;
 }
 
@@ -238,5 +239,23 @@ int eleven() {
   p = &a;
   printf("Section 11\nValue for the int a: %i\n", a);
   printf("Value for pointer p: %i\n\n", *p);
+  return 0;
+}
+
+// 12. Structures
+/* Create a structure that prints a link to a YouTube video. Include some of its
+ * metadata */
+int twelve() {
+  typedef struct {
+    char *url;
+    char *date;
+    char *uploader;
+  } link;
+
+  link rick;
+  rick.url = "https://youtu.be/dQw4w9WgXcQ";
+  rick.date = "Oct 24, 2009";
+  rick.uploader = "Official Rick Astley";
+  printf("Section 12\n%s\n\n", rick.url);
   return 0;
 }
