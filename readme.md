@@ -17,4 +17,5 @@ Thanks!
 <h2>//TODO</h2>
 
    1. Finish remaining sections
-   2. Replace magic numbers with #definitions
+   2. Make 8 an actual problem
+   3. Replace magic numbers with #definitions
