@@ -25,7 +25,7 @@ int main() {
   two();
   three();
   four();
-  /* five and six require scanf() statements using gcc. */
+  /* NOTE: five and six require scanf() statements using gcc. */
   // five();
   // six();
   seven();
@@ -36,6 +36,9 @@ int main() {
   return 0;
 }
 
+/* *********************** *
+ * ****** " basic " ****** *
+ * *********************** */
 // 1. Hello World
 /* write a simple hello world statement in c using printf */
 int one() {
@@ -223,4 +226,17 @@ int helpTen(int input) {
   return sum;
 }
 
-int eleven() { return 0; }
+/* ************************ *
+ * ***** " advanced " ***** *
+ * ************************ */
+// 11. Pointers
+/* Declare a variable and reference a pointer to it. Print both it and its
+ * deferenced value; they should be identical */
+int eleven() {
+  int a = rand();
+  int *p;
+  p = &a;
+  printf("Section 11\nValue for the int a: %i\n", a);
+  printf("Value for pointer p: %i\n\n", *p);
+  return 0;
+}
