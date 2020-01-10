@@ -13,7 +13,7 @@
 #define FALSE 0
 #define TRUE 1
 
-int one(), two(), three(), four(), five(), six(), seven(), eight();
+int one(), two(), three(), four(), five(), six(), seven(), eight(), nine();
 
 int main() {
   one();
@@ -24,6 +24,7 @@ int main() {
   // six();
   seven();
   eight();
+  nine("hello");
   return 0;
 }
 
@@ -162,5 +163,19 @@ int eight() {
     printf("> club penguin is kil\n");
   }
   printf("> no\n\n");
+  return 0;
+}
+
+// 9. Functions
+/* write the nine() function passing in a string as an argument. Set it equal to
+ * a pointer, then print the string letter by letter using the pointer. */
+int nine(char input[]) {
+  int index;
+  char *pointer;
+  pointer = input;
+  printf("Section 9\n");
+  for (index = 0; index < strlen(input); index++) {
+    printf("%c", pointer[index]);
+  }
   return 0;
 }
