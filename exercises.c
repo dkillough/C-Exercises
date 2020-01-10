@@ -2,10 +2,6 @@
    exercises.c program
    author: @dkillough
    sections based off of section tutorials from learn-c.org (copyright n.d.)
-
-   //TODO:
-   1. Finish remaining sections
-   2. Replace magic numbers with #definitions
  */
 
 #include <stdio.h>
