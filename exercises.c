@@ -1,7 +1,7 @@
 /*
    exercises.c program
    author: @dkillough
-   sections based off of section tutorials from learn-c.org (copyright n.d.)
+   sections based off of those from learn-c.org (copyright n.d.)
  */
 
 #include <math.h>
