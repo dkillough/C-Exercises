@@ -15,10 +15,11 @@
 
 // "BASIC"
 int one(), two(), three(), four(), five(), six(), seven(), eight(), nine(),
-    ten(), helpTen();
+    ten(), helpTen(int input);
 
 // "ADVANCED"
-int eleven(), twelve();
+int eleven(), twelve(), thirteen();
+void helpThirteen();
 
 int main() {
   one();
@@ -34,6 +35,7 @@ int main() {
   ten();
   eleven();
   twelve();
+  thirteen();
   return 0;
 }
 
@@ -258,4 +260,33 @@ int twelve() {
   rick.uploader = "Official Rick Astley";
   printf("Section 12\n%s\n\n", rick.url);
   return 0;
+}
+
+typedef struct {
+  char *name;
+  char *desc;
+  int size_x;
+  int size_y;
+  char *format;
+} image;
+
+// 13. Functions by reference
+int thirteen() {
+  image landscape;
+  landscape.name = "Landscape";
+  landscape.desc = "Some trees on a hill overlooking water";
+  landscape.size_x = 2560;
+  landscape.size_y = 1440;
+  landscape.format = ".png";
+  int perce;
+  printf("Section 13\nThe current image is %s%s of size %ix%i. To what percentage would you like to resize it?\n", landscape.name, landscape.format, landscape.size_x, landscape.size_y);
+  scanf("%i%%\n", &perce);
+  helpThirteen(&landscape, perce);
+  printf("%s's new size is %ix%i.\n\n", landscape.name, landscape.size_x, landscape.size_y);
+  return 0;
+}
+
+void helpThirteen(image *i, int percentage) {
+  i->size_x *= (percentage / 100);
+  i->size_y *= (percentage / 100);
 }
