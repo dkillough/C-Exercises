@@ -12,8 +12,6 @@ Please report any issues you've found to /issues.
 
 Thanks!
 
--Daniel
-
 <h2>//TODO</h2>
 
    1. Finish remaining sections
