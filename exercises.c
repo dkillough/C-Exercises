@@ -94,20 +94,20 @@ void six() {
 }
 
 // 7. For loops
-/* create an array of 8 values with exponentially increasing values using a
- * for loop (not the math class) */
+/* initialize an array that contains the first 8 powers of 2 (2, 4, 8, 16, 32...) using one for loop */
 void seven() {
-  int array[9];
-  int index;
-  array[0] = 2;
-  for (index = 1; index < 8; index++) {
-    array[index] = array[index - 1] * array[0];
+  int arr[8];
+  int i;
+  arr[0] = 2;
+  for (i = 1; i < 8; i++) {
+    arr[i] = arr[i - 1] * arr[0];
   }
   printf("{ ");
-  for (index = 0; index < 8; index++) {
-    printf("%i ", array[index]);
+  for (i = 0; i < 8; i++) {
+    printf("%i ", arr[i]);
   }
   printf("}\n\n");
+  checkSeven(arr) ? printf("#7 passed\n") : printf("** #7 FAILED **\n\n");
 }
 
 // 8. While loops

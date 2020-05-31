@@ -11,10 +11,10 @@ int checkThree(int* inputArr) {
   }
   for (i = 0; i < 10; i++) {
     if(testArr[i] != inputArr[i]) {
-      return 0;
+      return FALSE;
     }
   }
-  return 1;
+  return TRUE;
 }
 
 int checkFour(int* arr1, int* arr2, int s1, int s2) {
@@ -29,4 +29,18 @@ int checkFour(int* arr1, int* arr2, int s1, int s2) {
     }
   }
   return runningTotal;
+}
+
+int checkSeven(int* inputArr) {
+  int arr[8];
+  arr[0] = 2;
+  for (int i = 1; i < 8; i++) {
+    arr[i] = arr[i - 1] * arr[0];
+  }
+  for(int i = 0; i < 8; i++) {
+    if(inputArr[i] != arr[i]) {
+      return FALSE;
+    }
+  }
+  return TRUE;
 }
