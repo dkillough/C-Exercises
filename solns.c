@@ -32,15 +32,14 @@ int checkFour(int* arr1, int* arr2, int s1, int s2) {
 }
 
 void exampleFive() {
-  int guessed = FALSE; // has the player guessed the correct number?
   int numToGuess = rand() % 100; // pick a random number between 1 and 100
   int numUserGuessed; // the player's current guess
-  while (guessed == FALSE) { // while the player hasn't guessed the game
-    printf("Enter a number: ");
+  while (TRUE) { // while the player hasn't guessed the number
+    printf("Enter a number: "); //ask and record their guess
     scanf("%d", &numUserGuessed);
-    printf("You guessed: %i\n", numUserGuessed);
-    if (numUserGuessed == numToGuess) {
-      guessed = TRUE;
+    printf("You guessed: %i\n", numUserGuessed); // for debugging
+    if (numUserGuessed == numToGuess) { //break out
+      break;
     } else if (numUserGuessed < numToGuess) {
       printf("Guess higher.\n");
     } else {
@@ -48,6 +47,17 @@ void exampleFive() {
     }
   }
   printf("The number was guessed: %i\n\n", numToGuess);
+}
+
+void exampleSix() {
+  char input[10];
+  int i = 0;
+  printf("What'cha got?");
+  scanf("%s", input);
+  while(input[i] != '\0' && i < 10) {
+    printf("%c\n", *(input + i)); // check reference #3 for this indexing method
+    i++;
+  }
 }
 
 int checkSeven(int* inputArr) {
@@ -64,6 +74,67 @@ int checkSeven(int* inputArr) {
   return TRUE;
 }
 
+// 8. While loops
+/* write a very convoluted way of printing out a meme */
+// TODO: Rewrite into an actual problem
+void eight() {
+  int index = -1;
+  while (index < 10) {
+    index++;
+    if (index < 9) {
+      continue;
+    } else if (index == 10) {
+      break;
+    }
+    printf("> club penguin is kil\n");
+  }
+  printf("> no\n\n");
+}
+
+// 9. Functions
+/* write the nine() function passing in a string as an argument. Set it equal to
+ * a pointer, then print the string letter by letter using the pointer. */
+void nine(char input[]) {
+  int i;
+  char *pointer;
+  pointer = input;
+  for (i = 0; i < strlen(input); i++) {
+    printf("%c", pointer[i]);
+  }
+  printf("\n\n");
+}
+
+// 10. Static
+/* multiply the values in a 2D array by a given quantity, then sum them all
+ * together. Print both the array after multiplication as well as the sum of all
+ * elements. */
+void ten() {
+  int array[][3] = {{5, 10, 15}, {64, 83, 25}, {4, 84, 2568}, {753, 57, 75}};
+  int quantity = 15;
+  int r, c;
+  for (r = 0; r < 4; r++) {
+    printf("| ");
+    for (c = 0; c < 3; c++) {
+      array[r][c] *= quantity;
+      printf("%i ", array[r][c]);
+    }
+    printf("|\n");
+  }
+  for (r = 0; r < 4; r++) {
+    for (c = 0; c < 3; c++) {
+      helpTen(array[r][c]);
+    }
+  }
+  printf("Sum: %d\n\n", helpTen(0));
+}
+/* helper method for 10 to demo static sum variable, which is objectively slower
+ than just writing the sum statement code in the for loop. Nice. */
+int helpTen(int input) {
+  static int sum;
+  sum += input;
+  return sum;
+}
+
 void exampleTwelve() {
   typedef struct {
     char *url;
@@ -76,4 +147,9 @@ void exampleTwelve() {
   rick.date = "Oct 24, 2009";
   rick.uploader = "Official Rick Astley";
   printf("%s, uploaded %s by %s\n", rick.url, rick.date, rick.uploader);
+}
+
+void exampleSixteen() {
+    printf("Problem #16 unavailable for now, please try again later.\n");
+    exampleSixteen();
 }

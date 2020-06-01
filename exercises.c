@@ -3,9 +3,12 @@
    author: @dkillough
    cs.utexas.edu/~dekilo
    supplementary practice material for use in conjunction with learn-c.org (copyright n.d.)
-  >> for incoming CS 429 students @ UT Austin <<
 
-   ... oh, and ignore the compile warnings @ checkFour for now :grimacing:
+   >> for incoming CS 429 students @ UT Austin <<
+
+   **Note I had Dr. Young. Dr. Chatterjee uses slightly different material.  
+
+   ... oh, and ignore the compile warnings @ checkFour for now !
  */
 
 #include "Exercises.h"
@@ -25,7 +28,7 @@ void two(int a, int b) {
   (checkTwo(a, b) == sum) ? printf("#2 passed\n\n") : printf("** #2 FAILED **\n\n");
 }
 
-// 3. Arrays
+// 3. Arrays: SEE REFERENCE #2
 /* init an array with 10 elements, then fill it with values identical to their index.
  * Print the array.
  */
@@ -51,38 +54,33 @@ void four() {
 
 // 5. Conditions
 /* Complete a number guessing game iteratively:
- * Pick a number
-    if they haven't guessed the number, tell them to try again
-    if they guessed too high, tell them to guess lower
-    if they guessed too low, tell them to guess higher
-   */
+ * Pick a number, either using rand() or hard coding it in
+ * Ask the user to guess a number
+ * If they guess incorrectly, tell them to try again
+ * If they guessed too high, tell them to guess lower
+ * If they guessed too low, tell them to guess higher
+ * Repeat until they guess the number
+*/
 void five() {
-  exampleFive();
+  // exampleFive(); // example solution
 }
 
 // 6. Strings
-/* write a method that asks for a word as input, then prints it back out letter by letter. set a character limit for memory's sake. */
+/* write a method that asks for a word as input, then prints it back out letter by letter. Set a character limit for memory's sake. */
 void six() {
-  char input[10];
-  int i = 0;
-  printf("What'cha got?");
-  scanf("%s", input);
-  while(input[i] != '\0' && i < 10) {
-    printf("%c\n", *(input + i));
-    i++;
-  }
+  // exampleSix();
 }
 
 // 7. For loops
-/* initialize an array that contains the first 8 powers of 2 (2, 4, 8, 16, 32...) using one for loop */
+/* initialize an array that contains the first 8 powers of 2 (2, 4, 8 ... 256) using one for loop */
 void seven() {
   int arr[8];
   int i;
   arr[0] = 2;
-  for (i = 1; i < 8; i++) {
-    arr[i] = arr[i - 1] * arr[0];
-  }
-  printf("{ ");
+
+  /* for loop goes here */
+
+  printf("{ "); // print statements to check your answer
   for (i = 0; i < 8; i++) {
     printf("%i ", arr[i]);
   }
@@ -90,70 +88,16 @@ void seven() {
   checkSeven(arr) ? printf("#7 passed\n") : printf("** #7 FAILED **\n\n");
 }
 
-// 8. While loops
-/* Write a very convoluted way of printing out a meme */
-// TODO: Rewrite into an actual problem
-void eight() {
-  int index = -1;
-  while (index < 10) {
-    index++;
-    if (index < 9) {
-      continue;
-    } else if (index == 10) {
-      break;
-    }
-    printf("> club penguin is kil\n");
-  }
-  printf("> no\n\n");
-}
+// eight, nine, and ten are in the solutions file because admittedly they aren't very good examples and at this point I doubt you need a tutorial on how to use a while loop. 
+// Feel free to look at them anyways to understand how they work 
 
-// 9. Functions
-/* write the nine() function passing in a string as an argument. Set it equal to
- * a pointer, then print the string letter by letter using the pointer. */
-void nine(char input[]) {
-  int i;
-  char *pointer;
-  pointer = input;
-  for (i = 0; i < strlen(input); i++) {
-    printf("%c", pointer[i]);
-  }
-  printf("\n\n");
-}
 
-// 10. Static
-/* multiply the values in a 2D array by a given quantity, then sum them all
- * together. Print both the array after multiplication as well as the sum of all
- * elements. */
-void ten() {
-  int array[][3] = {{5, 10, 15}, {64, 83, 25}, {4, 84, 2568}, {753, 57, 75}};
-  int quantity = 15;
-  int r, c;
-  for (r = 0; r < 4; r++) {
-    printf("| ");
-    for (c = 0; c < 3; c++) {
-      array[r][c] *= quantity;
-      printf("%i ", array[r][c]);
-    }
-    printf("|\n");
-  }
-  for (r = 0; r < 4; r++) {
-    for (c = 0; c < 3; c++) {
-      helpTen(array[r][c]);
-    }
-  }
-  printf("Sum: %d\n\n", helpTen(0));
-}
-/* helper method for 10 to demo static sum variable, which is objectively slower
- than just writing the sum statement code in the for loop. Nice. */
-int helpTen(int input) {
-  static int sum;
-  sum += input;
-  return sum;
-}
 
 /* ************************ *
  * ***** " advanced " ***** *
+ * *(actually new c stuff)* *
  * ************************ */
+
 // 11. Pointers
 /* Declare a variable and reference a pointer to it. Print both it and its
  * deferenced value; they should be identical */
@@ -166,56 +110,120 @@ void eleven() {
   (a == *p) ? printf("#11 passed\n") : printf("** #11 FAILED **\n\n");
 }
 
-// 12. Structures
+// 12. Structures: SEE REFERENCE #4
 /* Create a structure called "link" that prints a link to a YouTube video along with some metadata. */
 void twelve() {
   typedef struct {
     /* your code here */
   } link;
   /* more code here */
-  exampleTwelve();
+  // exampleTwelve(); // Example if you want it
 }
 
-typedef struct {
-  char *name;
-  char *desc;
-  int size_x;
-  int size_y;
-  char *format;
-} image;
+
+
+
+
+
+
+
 
 // 13. Functions by reference
+typedef struct {
+  int size_x;
+  int size_y;
+  char *name;
+  char *desc;
+  char *format;
+  } image;
+
 void thirteen() {
-  image landscape;
-  landscape.name = "Landscape";
-  landscape.desc = "Some trees on a hill overlooking water";
-  landscape.size_x = 2560;
-  landscape.size_y = 1440;
-  landscape.format = ".png";
-  int perce;
-  printf("The current image is %s%s of size %ix%i. To what "
-         "percentage would you like to resize it?\n",
-         landscape.name, landscape.format, landscape.size_x, landscape.size_y);
-  scanf("%d\n", &perce);
-  landscape.size_x *= (perce / 100);
-  //helpThirteen(&landscape, perce);
-  printf("%s's new size is %ix%i.\n\n", landscape.name, landscape.size_x,
-         landscape.size_y);
+//   image landscape;
+//   landscape.name = "Landscape";
+//   landscape.desc = "Some trees on a hill overlooking water";
+//   landscape.size_x = 2560;
+//   landscape.size_y = 1440;
+//   landscape.format = ".png";
+//   int perce;
+//   printf("The current image is %s%s of size %ix%i. To what "
+//          "percentage would you like to resize it?\n",
+//          landscape.name, landscape.format, landscape.size_x, landscape.size_y);
+//   scanf("%d\n", &perce);
+//   landscape.size_x *= (perce / 100);
+//   //helpThirteen(&landscape, perce);
+//   printf("%s's new size is %ix%i.\n\n", landscape.name, landscape.size_x,
+//          landscape.size_y);
 }
 
-void helpThirteen(image *i, int percentage) {
-  i->size_x *= (percentage / 100);
-  i->size_y *= (percentage / 100);
-}
+// void helpThirteen(image *i, int percentage) {
+//   i->size_x *= (percentage / 100);
+//   i->size_y *= (percentage / 100);
+// }
 
 // 14. Dynamic Allocation
 void fourteen() {
-  image *portrait = (image *)(malloc(sizeof(image)));
-  portrait->name = "Sam";
-  portrait->desc = "a photo of sam";
-  printf("%s: %s\n\n", portrait->name, portrait->desc);
-  free(portrait);
+  // image *portrait = (image *)(malloc(sizeof(image)));
+  // portrait->name = "Sam";
+  // portrait->desc = "a photo of sam";
+  // printf("%s: %s\n\n", portrait->name, portrait->desc);
+  // free(portrait);
 }
+
+// 15. Arrays and Pointers
+void fifteen() {
+
+
+}
+
+// 16. Recursion
+/* Recursion in C is identical to recursion in Java and won't really be covered here.
+ *
+ * Task: cause a segfault using recursion
+ */
+void sixteen() {
+    // exampleSixteen(); // ... it's not very difficult
+  }
+  
+// 17. LinkedLists
+void seventeen() {
+
+
+}
+
+
+// 18. Binary Trees
+/* Binary trees were never covered except on one or two homework questions later in the semester, one of which was extra credit.
+ * If you want to try them for yourself, here are the leetcode links:
+ * https://leetcode.com/problems/maximum-depth-of-binary-tree/ 
+ * https://leetcode.com/problems/univalued-binary-tree/ 
+ */
+
+// 19. Unions
+void nineteen() {
+
+
+}
+
+
+// 20. Pointer arithmetics: SEE REFERENCE #3 (again)
+void twenty() {
+
+
+}
+
+// 21. Function pointers
+void twentyone() {
+
+
+}
+
+// 22. Bitmasks 
+/* VERY IMPORTANT FOR THE FIRST FEW WEEKS AT LEAST */
+void twentytwo() {
+
+
+}
+
 
 int main() {
   int picked;
@@ -244,7 +252,6 @@ int main() {
       break;
     case 6:
       six();
-      /* getting an "abort" message after running this is fine oop */
       break;
     case 7:
       seven();
@@ -266,6 +273,24 @@ int main() {
       break;
     case 13:
       thirteen();
+      break;
+    case 14:
+      fourteen();
+      break;
+    case 15: 
+      fifteen();
+      break;
+    case 16:
+      sixteen();
+      break;
+    case 17:
+      seventeen();
+      break;
+    case 18:
+      printf("See code comments for information on BT's this semester");
+      break;
+    case 19:
+      nineteen();
       break;
   }
   return 0;
