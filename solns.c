@@ -31,6 +31,25 @@ int checkFour(int* arr1, int* arr2, int s1, int s2) {
   return runningTotal;
 }
 
+void exampleFive() {
+  int guessed = FALSE; // has the player guessed the correct number?
+  int numToGuess = rand() % 100; // pick a random number between 1 and 100
+  int numUserGuessed; // the player's current guess
+  while (guessed == FALSE) { // while the player hasn't guessed the game
+    printf("Enter a number: ");
+    scanf("%d", &numUserGuessed);
+    printf("You guessed: %i\n", numUserGuessed);
+    if (numUserGuessed == numToGuess) {
+      guessed = TRUE;
+    } else if (numUserGuessed < numToGuess) {
+      printf("Guess higher.\n");
+    } else {
+      printf("Guess lower.\n");
+    }
+  }
+  printf("The number was guessed: %i\n\n", numToGuess);
+}
+
 int checkSeven(int* inputArr) {
   int arr[8];
   arr[0] = 2;
@@ -43,4 +62,18 @@ int checkSeven(int* inputArr) {
     }
   }
   return TRUE;
+}
+
+void exampleTwelve() {
+  typedef struct {
+    char *url;
+    char *date;
+    char *uploader;
+  } link;
+
+  link rick;
+  rick.url = "https://youtu.be/dQw4w9WgXcQ";
+  rick.date = "Oct 24, 2009";
+  rick.uploader = "Official Rick Astley";
+  printf("%s, uploaded %s by %s\n", rick.url, rick.date, rick.uploader);
 }

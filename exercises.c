@@ -20,8 +20,8 @@ void one() {
 // 2. Vars/types
 /* write a statement to add two ints together, then print them out */
 void two(int a, int b) {
-  int sum = a + b;
-  printf("The sum is %d\n", sum);
+  int sum;
+  /* your code here */
   (checkTwo(a, b) == sum) ? printf("#2 passed\n\n") : printf("** #2 FAILED **\n\n");
 }
 
@@ -31,12 +31,7 @@ void two(int a, int b) {
  */
 void three() {
   int arr[10], i;
-  for (i = 0; i < 10; i++) {
-    arr[i] = i;
-  }
-  for (i = 0; i < 10; i++) {
-    printf("Array @ %d: %d\n", i, arr[i]);
-  }
+  /* your code here */
   checkThree(arr) ? printf("#3 passed\n") : printf("** #3 FAILED **\n\n");
 }
 
@@ -45,39 +40,24 @@ void three() {
  * Loop through each (nested for loops are fine) and compare values at each index.
  * Print the number of times the values at each index are the same */
 void four() {
-  int size1 = 2;
-  int size2 = 4;
-  int arr1[2][4] = {{0, 1, 2, 3}, {4, 5, 6, 7}};
-  int arr2[2][4] = {{0, 4, 7, 1}, {1, 4, 6, 9}};
+  int size1;
+  int size2;
+  int arr1[size1][size2];
+  int arr2[size1][size2];
   int i, j, runningTotal = 0;
-  for (i = 0; i < size1; i++) {
-    for (j = 0; j < size2; j++) {
-      runningTotal += (arr1[i][j] == arr2[i][j]);
-    }
-  }
-  printf("Num equalities: %d\n\n", runningTotal);
+  /* your code here */
   (checkFour(arr1, arr2, size1, size2) == runningTotal) ? printf("#4 passed\n") : printf("** #4 FAILED **\n\n");
 }
 
 // 5. Conditions
-/* Complete a number guessing game iteratively. */
+/* Complete a number guessing game iteratively:
+ * Pick a number
+    if they haven't guessed the number, tell them to try again
+    if they guessed too high, tell them to guess lower
+    if they guessed too low, tell them to guess higher
+   */
 void five() {
-  int guessed = FALSE; // has the player guessed the correct number?
-  int numToGuess = rand() % 100; // pick a random number between 1 and 100
-  int numUserGuessed; // the player's current guess
-  while (guessed == FALSE) { // while the player hasn't guessed the game
-    printf("Enter a number: ");
-    scanf("%d", &numUserGuessed);
-    printf("You guessed: %i\n", numUserGuessed);
-    if (numUserGuessed == numToGuess) {
-      guessed = TRUE;
-    } else if (numUserGuessed < numToGuess) {
-      printf("Guess higher.\n");
-    } else {
-      printf("Guess lower.\n");
-    }
-  }
-  printf("The number was guessed: %i\n\n", numToGuess);
+  exampleFive();
 }
 
 // 6. Strings
@@ -183,23 +163,17 @@ void eleven() {
   p = &a;
   printf("Value for the int a: %i\n", a);
   printf("Value for pointer p: %i\n\n", *p);
+  (a == *p) ? printf("#11 passed\n") : printf("** #11 FAILED **\n\n");
 }
 
 // 12. Structures
-/* Create a structure that prints a link to a YouTube video. Include some of its
- * metadata */
+/* Create a structure called "link" that prints a link to a YouTube video along with some metadata. */
 void twelve() {
   typedef struct {
-    char *url;
-    char *date;
-    char *uploader;
+    /* your code here */
   } link;
-
-  link rick;
-  rick.url = "https://youtu.be/dQw4w9WgXcQ";
-  rick.date = "Oct 24, 2009";
-  rick.uploader = "Official Rick Astley";
-  printf("%s\n\n", rick.url);
+  /* more code here */
+  exampleTwelve();
 }
 
 typedef struct {
