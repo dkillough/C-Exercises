@@ -52,7 +52,7 @@ void exampleFive() {
 void exampleSix() {
   char input[10];
   int i = 0;
-  printf("What'cha got?");
+  printf("What'cha got?\n");
   scanf("%s", input);
   while(input[i] != '\0' && i < 10) {
     printf("%c\n", *(input + i)); // check reference #3 for this indexing method
