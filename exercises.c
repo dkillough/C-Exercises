@@ -199,6 +199,9 @@ void seventeen() {
  */
 
 // 19. Unions
+
+/***** BROKEN ********/
+
 void nineteen() {
   union cpu {
     char* brand;
@@ -231,7 +234,9 @@ void nineteen() {
 
 // 20. Pointer arithmetics: SEE REFERENCE #3 (again)
 void twenty() {
-
+  char* alphabet = "abcdefghijklmnopqrstuvwxyz";
+  //spell something using pointer manipulation
+  
 
 }
 
