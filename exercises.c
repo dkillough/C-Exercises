@@ -200,7 +200,31 @@ void seventeen() {
 
 // 19. Unions
 void nineteen() {
+  union cpu {
+    char* brand;
+    char* name;
+    int price; 
+  };
 
+  union cpu i5;
+  i5.brand = "Intel";
+  i5.name = "Core i5-9600K";
+  i5.price = 196;
+
+  union cpu ryzen5;
+  ryzen5.brand = "AMD";
+  ryzen5.name = "Ryzen 5 3600";
+  ryzen5.price = 167;
+
+  // example
+  // using unions you can only access one element per line.
+  // get around this by splitting up your statements into multiple lines. Not super efficient but it works.
+  printf("The %s ", i5.brand);
+  printf("%s CPU costs ", i5.name);
+  printf("$%d, while the ", i5.price);
+  printf("%s ", ryzen5.brand);
+  printf("%s costs ", ryzen5.name);
+  printf("$%d", ryzen5.price);
 
 }
 
