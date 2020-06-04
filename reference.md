@@ -50,7 +50,7 @@ for (i = 0; i < size; i++) {}
 **However**, you **do** need to declare all functions and variables before use. To enhance readability of your code, declare an empty function instruction at the top of your code (i.e. `void aFunc();`) OR use a header (`functions.h`) file as done in this project.
 
 
-<h3> 3. *Array indexing at the first element (arr[0]) is the same as dereferencing a pointer to the array itself (\*arr).* </h3>
+<h3> 3. Array indexing at the first element (arr[0]) is the same as dereferencing a pointer to the array itself (*arr). </h3>
 Therefore, with a little pointer arithmetic, you can reference individual elements of the array by adding the index to the memory address of arr, like so:
 
 `char* arr = "hello!"` is really an array of `{h, e, l, l, o, \n}`.
@@ -69,11 +69,15 @@ since int is a four-byte quantity, index this array with `*(arr + (4*i))` to get
 
 
 <h3> 6. ints are 32-bit quantities </h3>
+
 One hex value is a nybble (4 bits) which is 1/2 a byte
-This lends itself to pretty quick conversions. For example, the bit string
-1000100010001 is equivalent to the hex value 0x1111
+
+This lends itself to pretty quick conversions. For example, the bit string 1000100010001
+is equivalent to the hex value 0x1111
+
 How do I know?
-Starting from the right, group each set of 4 numbers together. Evaluate each individually. If there's not enough on the left side to be evenly divisible by four, fill in with zeroes. Any leading zeroes on the left side are typically dropped.
+
+Starting from the right, group each set of 4 numbers together. Evaluate each individually. If there's not enough on the left side to be evenly divisible by four, fill in with zeroes (any leading zeroes on the left side are typically dropped).
 
 binary   | table 
 -------- | --------
