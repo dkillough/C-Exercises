@@ -34,9 +34,9 @@ I have defined the following values in this project for you in Exercises.h if yo
 So you can use TRUE and FALSE as conditions if you'd like.
 
 
-<h3> 2. Nowadays, you can still write a for loop like you would in Java: </h3>
+<h3> 2. Nowadays (with modern C compiling), you can still write a for loop like you would in Java: </h3>
 
-`for (**int** i = 0; i < size; i++) {}`
+`for (int i = 0; i < size; i++) {}`
 
 as opposed to declaring the index variable outside:
 
