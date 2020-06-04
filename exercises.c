@@ -120,59 +120,48 @@ void twelve() {
   // exampleTwelve(); // Example if you want it
 }
 
-
-
-
-
-
-
-
-
 // 13. Functions by reference
 typedef struct {
-  int size_x;
-  int size_y;
-  char *name;
-  char *desc;
-  char *format;
-  } image;
+  int value;
+  int price;
+} tuition;
 
-void thirteen() {
-//   image landscape;
-//   landscape.name = "Landscape";
-//   landscape.desc = "Some trees on a hill overlooking water";
-//   landscape.size_x = 2560;
-//   landscape.size_y = 1440;
-//   landscape.format = ".png";
-//   int perce;
-//   printf("The current image is %s%s of size %ix%i. To what "
-//          "percentage would you like to resize it?\n",
-//          landscape.name, landscape.format, landscape.size_x, landscape.size_y);
-//   scanf("%d\n", &perce);
-//   landscape.size_x *= (perce / 100);
-//   //helpThirteen(&landscape, perce);
-//   printf("%s's new size is %ix%i.\n\n", landscape.name, landscape.size_x,
-//          landscape.size_y);
+void covid(tuition* ut) {
+  ut->price *= 1.25; //price equals
+  ut->value *= 0.99; //value deminishes
 }
 
-// void helpThirteen(image *i, int percentage) {
-//   i->size_x *= (percentage / 100);
-//   i->size_y *= (percentage / 100);
-// }
+void thirteen() {
+  tuition ut;
+  ut.price = 10000;
+  ut.value = 10000;
+  covid(&ut);
+  printf("The price is %d, but the value is %d\n", ut.price, ut.value);
+}
 
 // 14. Dynamic Allocation
+/* this is literally just declaring a new struct but with a value of memory dependent on the size of the element. 
+ * important for some labs later in the semester.
+ * YOU MUST FREE IT WHEN YOU'RE DONE.
+*/
 void fourteen() {
-  // image *portrait = (image *)(malloc(sizeof(image)));
-  // portrait->name = "Sam";
-  // portrait->desc = "a photo of sam";
-  // printf("%s: %s\n\n", portrait->name, portrait->desc);
-  // free(portrait);
+  tuition * ut = (tuition*) malloc(sizeof(tuition));
+  ut->price = 10000;
+  ut->value = 10000;
+  printf("The price is %d, and the value is %d\n", ut->price, ut->value);
+  free(ut);
 }
 
 // 15. Arrays and Pointers
 void fifteen() {
-
-
+  int length = 6;
+  char* hi = (char*) malloc(6*sizeof(char));
+  int i;
+  for(i = 0; i < length; i++) {
+    *(hi + i) = 'A';
+  }
+  printf("%s\n", hi);
+  free(hi);
 }
 
 // 16. Recursion
@@ -181,15 +170,11 @@ void fifteen() {
  * Task: cause a segfault using recursion
  */
 void sixteen() {
-    // exampleSixteen(); // ... it's not very difficult
-  }
-  
-// 17. LinkedLists
-void seventeen() {
-
-
+  // exampleSixteen(); // ... it's not very difficult
 }
 
+// 17. LinkedLists
+/* Feel free to look at this page on your own, but Young never went over it in 429. */
 
 // 18. Binary Trees
 /* Binary trees were never covered except on one or two homework questions later in the semester, one of which was extra credit.
@@ -231,31 +216,43 @@ void nineteen() {
 
 }
 
-
 // 20. Pointer arithmetics: SEE REFERENCE #3 (again)
 void twenty() {
   char* alphabet = "abcdefghijklmnopqrstuvwxyz";
-  //Spell something using pointer manipulation. Be wary of off-by-one errors.
+  // Spell something using pointer manipulation. Be wary of off-by-one errors.
   exampleTwenty(alphabet);
 }
 
 // 21. Function pointers
-void twentyone() {
-
-
+/* you don't need to know this for 429 either, but it gives you good experience with how pointers actually work */
+int aFunction(long long longBoi) {
+  printf("%x\n", longBoi);
 }
+
+void twentyone() {
+  int* (*p)(long long);
+  p = &aFunction;
+  printf("");
+  (p)(0x5E1B008);
+}
+
+
 
 // 22. Bitmasks 
 /* VERY IMPORTANT FOR THE FIRST FEW WEEKS AT LEAST */
 void twentytwo() {
-
-
+  int a = 0xFFFFFF;
+  int b = 0x00FF00;
+  printf("%x\n", a&b);
+  printf("%x\n", a|b);
+  printf("%x\n", a^b);
+  printf("%x\n", !b);
 }
 
 
 int main() {
   int picked;
-  printf("Which test case would you like to test? Select an exercise #1 through 13\n");
+  printf("Which test case would you like to test? Select an exercise #1 through 22\n");
   scanf("%d", &picked);
   switch (picked) {
     case 1:
@@ -312,10 +309,10 @@ int main() {
       sixteen();
       break;
     case 17:
-      seventeen();
+      printf("See code comments for information on LinkedLists this semester");
       break;
     case 18:
-      printf("See code comments for information on BT's this semester");
+      printf("See code comments for information on Binary Trees this semester");
       break;
     case 19:
       nineteen();

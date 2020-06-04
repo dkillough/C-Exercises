@@ -21,3 +21,5 @@ since int is a four-byte quantity, index this array with `*(arr + (4*i))` to get
 4. Structures contiguously allocate memory in order based on their largest element while unions only allocate enough memory to contain their largest element. However, you may only use one property of a union at once.
 
 5. `char* word` is semantically equivalent to `char *word`
+
+6. Signed vs unsigned data types:
