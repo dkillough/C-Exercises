@@ -4,11 +4,7 @@
    cs.utexas.edu/~dekilo
    supplementary practice material for use in conjunction with learn-c.org (copyright n.d.)
 
-   >> for incoming CS 429 students @ UT Austin <<
-
-   **Note I had Dr. Young. Dr. Chatterjee uses slightly different material.  
-
-   ... oh, and ignore the compile warnings @ checkFour for now !
+   please note that the only reason why helper functions work underneath their respective numbers is due to their declaration in Exercises.h
  */
 
 #include "Exercises.h"
@@ -98,80 +94,78 @@ void seven() {
  * *(actually new c stuff)* *
  * ************************ */
 
+
 // 11. Pointers
 /* Declare a variable and reference a pointer to it. Print both it and its
  * deferenced value; they should be identical */
 void eleven() {
-  int a = rand();
-  int *p;
-  p = &a;
-  printf("Value for the int a: %i\n", a);
-  printf("Value for pointer p: %i\n\n", *p);
-  (a == *p) ? printf("#11 passed\n") : printf("** #11 FAILED **\n\n");
+  /* your code here */
+  exampleEleven(); // example solution, if you want it
 }
 
 // 12. Structures: SEE REFERENCE #4
-/* Create a structure called "link" that prints a link to a YouTube video along with some metadata. */
+/* Create a structure called "link" that contains a char* with a link to a youtube video as well as some metadata of your choice (video title, author, file format, date uploaded, etc.). Then print the data */
 void twelve() {
   typedef struct {
     /* your code here */
   } link;
   /* more code here */
-  // exampleTwelve(); // Example if you want it
+  exampleTwelve(); // example solution, if you want it
 }
 
 // 13. Functions by reference
-typedef struct {
-  int value;
-  int price;
-} tuition;
-
-void covid(tuition* ut) {
-  ut->price *= 1.25; //price equals
-  ut->value *= 0.99; //value deminishes
+/* Typically, you'd pass a value into a function and return a value back
+ * Passing a function by reference lets you pass an address to the item's memory and directly change the element.
+ * 
+ * Structure "worth" has been created in exercises.h
+ * It has properties price and value, which are both values
+ * 
+ * Initialize a new "worth" object and set the price and value properties to a given value
+ */
+void thirteen() {
+  /* your code here */
+  exampleThirteen(); // example solution
 }
 
-void thirteen() {
-  tuition ut;
-  ut.price = 10000;
-  ut.value = 10000;
-  covid(&ut);
-  printf("The price is %d, but the value is %d\n", ut.price, ut.value);
+void helpThirteen(worth* product) {
+  /* modify the product's properties here
+   * use arrow notation (`product->[prop] [modifications]`) for legibility */
 }
 
 // 14. Dynamic Allocation
 /* this is literally just declaring a new struct but with a value of memory dependent on the size of the element. 
- * important for some labs later in the semester.
- * YOU MUST FREE IT WHEN YOU'RE DONE.
+ * important for some labs later in the semester (but the labs also rotate every semester).
+ * YOU MUST FREE IT WHEN YOU'RE DONE or you will cause a memory leak.
+ * 
+ * Declare a new "worth" object using dynamic allocation with the sizeof(worth).
+ * Set price and value variables at some value, then print them all out. 
 */
 void fourteen() {
-  tuition * ut = (tuition*) malloc(sizeof(tuition));
-  ut->price = 10000;
-  ut->value = 10000;
-  printf("The price is %d, and the value is %d\n", ut->price, ut->value);
-  free(ut);
+  /* your code here */
+  exampleFourteen(); // example solution
 }
 
 // 15. Arrays and Pointers
+/* Declare a new char array using the malloc([length] * sizeof(char)) syntax
+ * Fill it with characters one at a time using a for loop and pointer arithmetic (SEE: Reference #3 and example 20) 
+ * REMEMBER TO FREE THE MEMORY WHEN YOU'RE DONE USING IT
+*/
 void fifteen() {
-  int length = 6;
-  char* hi = (char*) malloc(6*sizeof(char));
-  int i;
-  for(i = 0; i < length; i++) {
-    *(hi + i) = 'A';
-  }
-  printf("%s\n", hi);
-  free(hi);
+  /* your code here */
+  exampleFifteen(); // example solution
 }
 
 // 16. Recursion
 /* Recursion in C is identical to recursion in Java and won't really be covered here.
  *
  * Task: cause a segfault using recursion
- */
+*/
+
 void sixteen() {
-  // exampleSixteen(); // ... it's not very difficult
+  /* your code here */
+  exampleSixteen(); // ... it's not very difficult
 }
+
 
 // 17. LinkedLists
 /* Feel free to look at this page on your own, but Young never went over it in 429. */
@@ -181,72 +175,60 @@ void sixteen() {
  * If you want to try them for yourself, here are the leetcode links:
  * https://leetcode.com/problems/maximum-depth-of-binary-tree/ 
  * https://leetcode.com/problems/univalued-binary-tree/ 
- */
+*/
+
 
 // 19. Unions
 
-/***** BROKEN ********/
+/* Create a new union with two data types, one that holds 8-byte numeric quantities and one that holds a character array of size [8 byte numeric quantity]
+ * set the numeric quantity with some value, then print out the character array
+ * 
+ * SEE: Reference #8 for a small list of data types
+*/
 
 void nineteen() {
-  union cpu {
-    char* brand;
-    char* name;
-    int price; 
-  };
-
-  union cpu i5;
-  i5.brand = "Intel";
-  i5.name = "Core i5-9600K";
-  i5.price = 196;
-
-  union cpu ryzen5;
-  ryzen5.brand = "AMD";
-  ryzen5.name = "Ryzen 5 3600";
-  ryzen5.price = 167;
-
-  // example
-  // using unions you can only access one element per line.
-  // get around this by splitting up your statements into multiple lines. Not super efficient but it works.
-  printf("The %s ", i5.brand);
-  printf("%s CPU costs ", i5.name);
-  printf("$%d, while the ", i5.price);
-  printf("%s ", ryzen5.brand);
-  printf("%s costs ", ryzen5.name);
-  printf("$%d", ryzen5.price);
-
+  /* your code here */
+  exampleNineteen(); // example solution
 }
 
 // 20. Pointer arithmetics: SEE REFERENCE #3 (again)
+/* Spell something using pointer manipulation and printf statements. Be wary of off-by-one errors. */
 void twenty() {
   char* alphabet = "abcdefghijklmnopqrstuvwxyz";
-  // Spell something using pointer manipulation. Be wary of off-by-one errors.
-  exampleTwenty(alphabet);
+  /* your code here */
+  exampleTwenty(alphabet); // example solution
 }
 
 // 21. Function pointers
-/* you don't need to know this for 429 either, but it gives you good experience with how pointers actually work */
-int aFunction(long long longBoi) {
-  printf("%x\n", longBoi);
+/* You don't need to know this for 429 either, but it gives you good experience with how pointers actually work.
+ * Print something using a function pointer to a helper method.
+ * The function twentyOne() should declare a new function pointer, sync it with the helper method's address, and call the function.
+ * The helper method should only have a print statement in it.
+ * 
+ * Declaration Syntax: [pointer of function's return type] (pointer to name)(argument type(s)) 
+ * 
+*/
+void twentyOne() {
+  /* your code here */
+  exampleTwentyOne();
 }
 
-void twentyone() {
-  int* (*p)(long long);
-  p = &aFunction;
-  printf("");
-  (p)(0x5E1B008);
+int helpTwentyOne(long long input) {
+  /* print statement here */
 }
-
-
 
 // 22. Bitmasks 
-/* VERY IMPORTANT FOR THE FIRST FEW WEEKS AT LEAST */
-void twentytwo() {
-  int a = 0xFFFFFF;
-  int b = 0x00FF00;
-  printf("%x\n", a&b);
-  printf("%x\n", a|b);
-  printf("%x\n", a^b);
-  printf("%x\n", !b);
+/* VERY IMPORTANT FOR THE FIRST FEW WEEKS AT LEAST; See reference #6
+ * Declare two ints and fill them with some value (doesn't matter what)
+ * Create four printf statements with:
+ * 1. The bitwise AND of the two ints (&)
+ * 2. The bitwise OR of the two ints (|)
+ * 3. The bitwise XOR of the two ints (^)
+ * 4. The bitwise NOT of *one* of the ints (!)
+*/
+void twentyTwo() {
+  /* your code here */
+  exampleTwentyTwo();
 }
 
 
@@ -327,5 +309,5 @@ int main() {
       twentytwo();
       break;
   }
-  return 0;
+  return 0; // indicates success
 }

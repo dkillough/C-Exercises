@@ -1,3 +1,8 @@
+/* Solutions.c 
+ * Author: @dkillough
+ * Answer file for exercises.c
+ * Go here to verify your solutions. Tell me any issues in C-Exercises/issues
+*/
 
 int checkTwo(int a, int b) {
   return a + b;
@@ -135,6 +140,19 @@ int helpTen(int input) {
   return sum;
 }
 
+
+/* ******************************************************************************************** */
+
+
+void exampleEleven() {
+  int a = rand();
+  int *p;
+  p = &a;
+  printf("Value for the int a: %i\n", a);
+  printf("Value for pointer p: %i\n\n", *p);
+  (a == *p) ? printf("#11 passed\n") : printf("** #11 FAILED **\n\n");
+}
+
 void exampleTwelve() {
   typedef struct {
     char *url;
@@ -149,9 +167,52 @@ void exampleTwelve() {
   printf("%s, uploaded %s by %s\n", rick.url, rick.date, rick.uploader);
 }
 
+void myThirteenHelper(worth* good) {
+  good->price *= 1.25; //price of a good increases
+  good->value *= 0.99; //value of a good slightly diminishes over time
+}
+
+void exampleThirteen() {
+  worth product;
+  product.price = 10000;
+  product.value = 10000;
+  myThirteenHelper(&product);
+  printf("The product costs %d, but it's only worth %d\n", product.price, product.value);
+}
+
+void exampleFourteen() {
+  worth* product = (worth*) malloc(sizeof(worth));
+  product->price = 10000;
+  product->value = 10000;
+  printf("The price is %d, and the value is %d\n", product->price, product->value);
+  free(product);
+}
+
+void exampleFifteen() {
+  int length = 6;
+  char* hi = (char*) malloc(6 * sizeof(char));
+  int i;
+  for(i = 0; i < length; i++) {
+    *(hi + i) = 'A';
+  }
+  printf("%s\n", hi);
+  free(hi);
+}
+
 void exampleSixteen() {
     printf("Problem #16 unavailable for now, please try again later.\n");
     exampleSixteen();
+}
+
+void exampleNineteen() {
+  union asciiConv {
+    long nums;
+    char letters[sizeof(long)];
+  }; 
+
+  union asciiConv word;
+  word.nums = 0x55555555;
+  printf("%s\n", word.letters);
 }
 
 void exampleTwenty(char* alphabet) {
@@ -160,4 +221,23 @@ void exampleTwenty(char* alphabet) {
   char l = *(alphabet + 11);
   char o = *(alphabet + 14);
   printf("%c%c%c%c%c!\n", h, e, l, l, o);
+}
+
+void exampleTwentyOne() {
+  int* (*p)(long long);
+  p = &helpTwentyOne;
+  (p)(0x5E7800B);
+}
+
+int helpTwentyOne(long long longBoi) {
+  printf("%x\n", longBoi);
+}
+
+void exampleTwentyTwo() {
+  int a = 0xFFFFFF;
+  int b = 0x00FF00;
+  printf("%x\n", a&b);
+  printf("%x\n", a|b);
+  printf("%x\n", a^b);
+  printf("%x\n", !b);
 }
