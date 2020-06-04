@@ -5,7 +5,9 @@ A simple program to help you learn C.
 <b>Instructions per-section can be found as comments adjacent to the corresponding section.</b>
 
 Made for supplemental practice by @dkillough
+
 Originally created for incoming CS 429 students @ UT Austin 
+
 (**Note I had Dr. Young; Dr. Chatterjee uses slightly different material.)
 
 Section identifiers based off of those from [Learn C](https://www.learn-c.org) (Copyright n.d.)
