@@ -153,3 +153,11 @@ void exampleSixteen() {
     printf("Problem #16 unavailable for now, please try again later.\n");
     exampleSixteen();
 }
+
+void exampleTwenty(char* alphabet) {
+  char h = *(alphabet + 7);
+  char e = *(alphabet + 4);
+  char l = *(alphabet + 11);
+  char o = *(alphabet + 14);
+  printf("%c%c%c%c%c!\n", h, e, l, l, o);
+}

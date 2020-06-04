@@ -235,9 +235,8 @@ void nineteen() {
 // 20. Pointer arithmetics: SEE REFERENCE #3 (again)
 void twenty() {
   char* alphabet = "abcdefghijklmnopqrstuvwxyz";
-  //spell something using pointer manipulation
-  
-
+  //Spell something using pointer manipulation. Be wary of off-by-one errors.
+  exampleTwenty(alphabet);
 }
 
 // 21. Function pointers
@@ -320,6 +319,15 @@ int main() {
       break;
     case 19:
       nineteen();
+      break;
+    case 20:
+      twenty();
+      break;
+    case 21:
+      twentyone();
+      break;
+    case 22:
+      twentytwo();
       break;
   }
   return 0;
