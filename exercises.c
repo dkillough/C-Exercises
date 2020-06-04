@@ -7,7 +7,7 @@
    please note that the only reason why helper functions work underneath their respective numbers is due to their declaration in Exercises.h
  */
 
-#include "Exercises.h"
+#include "exercises.h"
 #include "solns.c"
 
 // 1. Hello World
