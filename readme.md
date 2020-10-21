@@ -6,6 +6,8 @@ A simple program to help you learn C.
 
 Made for supplemental practice by @dkillough
 
+Assumes you're coming from a Java background
+
 Originally created for incoming CS 429 students @ UT Austin 
 
 (**Note I had Dr. Young; Dr. Chatterjee uses slightly different material.)
